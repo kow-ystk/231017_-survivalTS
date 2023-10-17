@@ -13,7 +13,8 @@ function App() {
 }
 
 function LikeButton (){
-  return <span>いいねボタン予定地</span>;
+  const count = 999;
+  return <span>♥ {count}</span>;
 }
 
 export default App;
