@@ -36,7 +36,7 @@ const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
   // ローディング中でなければ画像を表示する
   return (
     <>
-      <div className="styles.page">
+      <div className={styles.page}>
         <button onClick={handleClick} className={styles.button}>
           One more cat!
         </button>
