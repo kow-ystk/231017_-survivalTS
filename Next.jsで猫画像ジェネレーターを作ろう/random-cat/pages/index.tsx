@@ -1,4 +1,4 @@
-import {  GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
 import styles from "./index.module.css";
 
@@ -23,7 +23,7 @@ const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
   // },[]);
 
   // ボタンをクリックしたときに画像を読み込む処理
-  const handleClick =async () => {
+  const handleClick = async () => {
     // 読み込み中フラグを立てる
     setLoading(true);
     const newImage = await fetchImage();
@@ -34,29 +34,30 @@ const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
   };
 
   // ローディング中でなければ画像を表示する
-  return(
+  return (
     <>
       <div className="styles.page">
-        <button onClick={handleClick} className={styles.button}>他のにゃんこも見る</button>
+        <button onClick={handleClick} className={styles.button}>
+          他のにゃんこも見る
+        </button>
         <div className={styles.frame}>
-          {loading || <img src={imageUrl} className={styles.im} />}
-          </div>;
           {loading || <img src={imageUrl} className={styles.img} />}
+        </div>
       </div>
     </>
-  )
+  );
 };
 
 export default IndexPage;
 
 // サーバーサイドで実行する処理
-export const getServerSideProps: GetServerSideProps<Props> =async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const image = await fetchImage();
   return {
     props: {
       initialImageUrl: image.url,
-    }
-  }
+    },
+  };
 };
 
 type Image = {
