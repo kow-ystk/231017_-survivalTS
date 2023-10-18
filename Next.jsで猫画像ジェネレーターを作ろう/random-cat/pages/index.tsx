@@ -41,6 +41,7 @@ const IndexPage: NextPage<Props> = ({ initialImageUrl }) => {
         <div className={styles.frame}>
           {loading || <img src={imageUrl} className={styles.im} />}
           </div>;
+          {loading || <img src={imageUrl} className={styles.img} />}
       </div>
     </>
   )
